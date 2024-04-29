@@ -15,6 +15,7 @@ export interface StatusLabelProps {
 }
 
 function StatusLabel({ children, status, disabled }: StatusLabelProps) {
+  console.log(process.env.CRM_SECRET_KEY);
   return (
     <div
       // className={clsx(
@@ -55,4 +56,3 @@ export default StatusLabel;
 Статусы: Дополнительные классы добавляются на основе значения status. Если ни одно из условий не выполнено (например, статус не соответствует ни одному из перечисленных), то в результате получится false и clsx просто игнорирует этот аргумент.
 Пустая строка в вашем списке аргументов ('') игнорируется.
 Условие disabled: Классы opacity-75 cursor-not-allowed добавляются, если disabled истинно. */
-
