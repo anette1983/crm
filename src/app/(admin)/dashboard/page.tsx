@@ -1,14 +1,15 @@
 import MagicButton from '@/app/components/magic-button';
 import React from 'react';
+import Header from '@/app/components/header';
 
 export interface Props {}
 
 function Page({}: Props) {
   return (
-    <main>
-      <h1 className="text-xl">Dashboard Page</h1>
+    <>
+      <Header>Dashboard</Header>
       <MagicButton />
-    </main>
+    </>
   );
 }
 
