@@ -15,7 +15,7 @@ export interface StatusLabelProps {
 }
 
 function StatusLabel({ children, status, disabled }: StatusLabelProps) {
-  console.log('env in status label', process.env.CRM_SECRET_KEY);
+  // console.log('env in status label', process.env.CRM_SECRET_KEY);
   // Всі компоненти за замовчуванням серверні
   // Під час рендерингу тобто можемо отримати доступ до ресурсів серверу
   // Проте з клієнта – бразуера – ці ресурси не будуть доступні
