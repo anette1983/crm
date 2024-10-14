@@ -15,6 +15,7 @@ export interface StatusLabelProps {
   // status: Status;
   status: CompanyStatus;
   disabled?: boolean;
+  styled?: boolean;
 }
 
 // function StatusLabel({ children, status, disabled }: StatusLabelProps) {
@@ -33,7 +34,16 @@ const labelByStatus = {
   [CompanyStatus.Suspended]: 'Suspended',
 };
 
-export default function StatusLabel({ status, disabled }: StatusLabelProps) {
+// export default function StatusLabel({ status, disabled }: StatusLabelProps) {
+export default function StatusLabel({
+  status,
+  disabled,
+  styled = true,
+}: StatusLabelProps) {
+  const label = labelByStatus[status];
+
+  if (!styled) return <>{label}</>;
+
   return (
     <div
       // className={clsx(
@@ -64,7 +74,8 @@ export default function StatusLabel({ status, disabled }: StatusLabelProps) {
       {/* bullet */}
       <div className="w-1 h-1 mr-2 rounded-full bg-current" />
       {/* {children} */}
-      {labelByStatus[status]}
+      {/* {labelByStatus[status]} */}
+      {label}
     </div>
   );
 }
