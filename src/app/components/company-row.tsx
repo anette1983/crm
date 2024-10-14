@@ -2,30 +2,13 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';
-
-// import StatusLabel, { Status } from '@/app/components/status-label';
 import StatusLabel from '@/app/components/status-label';
 import { Company } from '@/lib/api';
 
 export interface CompanyRowProps {
   company: Company;
 }
-// const labelByStatus = {
-//   [Status.Active]: 'Active',
-//   [Status.NotActive]: 'Not Active',
-//   [Status.Pending]: 'Pending',
-//   [Status.Suspended]: 'Suspended',
-// };
 
-// export default function CompanyRow({
-//   id,
-//   category,
-//   company,
-//   status,
-//   promotion,
-//   country,
-//   joinedDate,
-// }: CompanyRowProps) {
 export default function CompanyRow({ company }: CompanyRowProps) {
   return (
     <tr className="h-14 text-center text-gray-900 bg-white">
@@ -36,7 +19,6 @@ export default function CompanyRow({ company }: CompanyRowProps) {
         <Link href={`/companies/${company.id}`}>{company.title}</Link>
       </td>
       <td>
-        {/* <StatusLabel status={status}>{labelByStatus[status]}</StatusLabel> */}
         <StatusLabel status={company.status} />
       </td>
       <td>
@@ -44,26 +26,21 @@ export default function CompanyRow({ company }: CompanyRowProps) {
           <Image
             width={16}
             height={16}
-            // src={`/icons/${promotion ? 'check' : 'x-mark'}.svg`}
             src={`/icons/${company.hasPromotions ? 'check' : 'x-mark'}.svg`}
             alt="promotion icon"
           />
           <span
             className={clsx(
               'text-sm font-medium',
-              // promotion ? 'text-green-700' : 'text-red-700',
               company.hasPromotions ? 'text-green-700' : 'text-red-700',
             )}
           >
-            {/* {promotion ? 'Yes' : 'No'} */}
             {company.hasPromotions ? 'Yes' : 'No'}
           </span>
         </div>
       </td>
-      {/* <td>{country}</td> */}
       <td>{company.countryTitle}</td>
       <td className="rounded-r">
-        {/* {new Date(joinedDate).toLocaleDateString('uk-UA')} */}
         {new Date(company.joinedDate).toLocaleDateString('uk-UA')}
       </td>
     </tr>

@@ -1,15 +1,14 @@
 'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import { useQuery } from '@tanstack/react-query';
 import { getCompany } from '@/lib/api';
 import StatusLabel from '@/app/components/status-label';
 
-
 export interface CompanyInfoProps {
   companyId: string;
 }
-
 
 export default function CompanyInfo({ companyId }: CompanyInfoProps) {
   const { data: company } = useQuery({
@@ -17,6 +16,7 @@ export default function CompanyInfo({ companyId }: CompanyInfoProps) {
     queryFn: () => getCompany(companyId),
     staleTime: 10 * 1000,
   });
+
   if (!company) return null;
   return (
     <div className="flex flex-col gap-5">

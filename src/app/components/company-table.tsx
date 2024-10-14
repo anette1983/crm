@@ -15,7 +15,7 @@ const headers = [
   'Country',
   'Joined date',
 ];
-// export default function CompanyTable({ children }: CompanyTableProps) {
+
 export default function CompanyTable({}: CompanyTableProps) {
   const { data } = useQuery({
     queryKey: ['companies'],
@@ -35,7 +35,6 @@ export default function CompanyTable({}: CompanyTableProps) {
             ))}
           </tr>
         </thead>
-        {/* <tbody>{children}</tbody> */}
         <tbody>
           {data?.map((company) => (
             <CompanyRow key={company.id} company={company} />

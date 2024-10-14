@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import clsx from 'clsx';
@@ -9,7 +10,6 @@ export interface LogoUploaderProps
   square?: boolean;
 }
 
-// стилізований інпут із типом файл, за допомогою якого можна завантажувати тільки картинки
 export default function LogoUploader({
   square,
   label,
@@ -18,7 +18,6 @@ export default function LogoUploader({
   ...rest
 }: LogoUploaderProps) {
   return (
-    // <div className="flex gap-10 mb-3">
     <div
       className={clsx(
         'flex mb-3',
@@ -29,7 +28,6 @@ export default function LogoUploader({
       {label && <p className="text-base color-gray-900">{label}</p>}
       <label
         htmlFor={id}
-        // className="flex flex-col items-center justify-center w-40 h-40 bg-white border border-slate-900 border-dashed rounded-full cursor-pointer"
         className={clsx(
           'flex flex-col items-center justify-center h-40 bg-white border border-slate-900 border-dashed cursor-pointer',
           !square && 'w-40 rounded-full',
