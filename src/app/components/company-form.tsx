@@ -61,6 +61,10 @@ export default function CompanyForm({ onSubmit }: CompanyFormProps) {
   });
 
   const handleSubmit = async (values: CompanyFieldValues) => {
+    if (!categories || !countries) {
+      return null;
+    }
+
     await mutateAsync({
       ...values,
       categoryTitle:
